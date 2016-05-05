@@ -5,9 +5,9 @@ filetype off
 " プラグインのセットアップ
 """"""""""""""""""""""""""""""
 if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+  set runtimepath+=~/.vim/bundles/neobundle.vim/
 
-  call neobundle#begin(expand('~/.vim/bundle/'))
+  call neobundle#begin(expand('~/.vim/bundles/'))
 endif
 
 " Let NeoBundle manage NeoBundle
