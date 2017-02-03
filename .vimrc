@@ -66,6 +66,12 @@ NeoBundle 'claco/jasmine.vim'
 " indent colors
 NeoBundle 'nathanaelkane/vim-indent-guides'
 
+" slim
+NeoBundle "slim-template/vim-slim"
+
+" YAML
+NeoBundle 'stephpy/vim-yaml'
+
 call neobundle#end()
 
 filetype plugin indent on
@@ -117,6 +123,8 @@ augroup vimrc
     autocmd! FileType ruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
     autocmd! FileType slim setlocal shiftwidth=2 tabstop=2 softtabstop=2
     autocmd! FileType twig setlocal shiftwidth=2 tabstop=2 softtabstop=2
+    autocmd! FileType yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
+    autocmd! FileType javascript   setlocal shiftwidth=2 tabstop=2 softtabstop=2
 augroup END
 
 au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
