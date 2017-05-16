@@ -27,10 +27,29 @@ vmap <C-_> <Plug>(caw:i:toggle)
 NeoBundle 'mattn/emmet-vim'
 let g:user_emmet_leader_key='<C-t>'
 
+NeoBundle 'stephpy/vim-yaml'
+
 "-------------------------
 " NERDTree : Tree-view
 "-------------------------
 NeoBundle 'scrooloose/nerdtree'
+
+"-------------------------
+" yankround : ヤンク履歴
+"-------------------------
+NeoBundle 'LeafCage/yankround.vim'
+NeoBundle 'kien/ctrlp.vim'
+" yankround.vim {{{
+"" キーマップ
+nmap p <Plug>(yankround-p)
+nmap P <Plug>(yankround-P)
+nmap <C-p> <Plug>(yankround-prev)
+nmap <C-n> <Plug>(yankround-next)
+"" 履歴取得数
+let g:yankround_max_history = 50
+""履歴一覧(kien/ctrlp.vim)
+nnoremap <silent>g<C-p> :<C-u>CtrlPYankRound<CR>
+" }}}
 
 "-------------------------
 " Easy-Align : Auto Align
@@ -106,6 +125,7 @@ set backspace=start,eol,indent
 set fdm=marker
 let php_folding=1
 nnoremap <Esc><Esc> :<C-u>set nohlsearch<Return>
+cmap tb tabnew
 
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 set laststatus=2
@@ -117,9 +137,13 @@ augroup vimrc
     autocmd! FileType ruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
     autocmd! FileType slim setlocal shiftwidth=2 tabstop=2 softtabstop=2
     autocmd! FileType twig setlocal shiftwidth=2 tabstop=2 softtabstop=2
+    autocmd! FileType yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
 augroup END
 
-au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
+" au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
+
+nnoremap <C-l> gt
+nnoremap <C-h> gT
 
 colorscheme molokai
 syntax on
