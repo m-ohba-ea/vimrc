@@ -89,7 +89,11 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle "slim-template/vim-slim"
 
 " YAML
-NeoBundle 'stephpy/vim-yaml'
+" NeoBundle 'stephpy/vim-yaml'
+NeoBundle 'mrk21/yaml-vim'
+
+" YAML for ruby
+" NeoBundle 'vim-ruby/vim-ruby'
 
 call neobundle#end()
 
@@ -118,6 +122,7 @@ set smartindent " smart indent
 set autoindent  " auto indent
 set expandtab   " convert tab to spaces
 set cursorline  " highlight active line
+set cursorcolumn "highlight active column
 set showmatch   " highlight parethesis
 set nobackup    " do not create backup file
 set noswapfile  " do not create swap file
@@ -139,7 +144,7 @@ set laststatus=2
 augroup vimrc
     autocmd! FileType perl setlocal shiftwidth=4 tabstop=2 softtabstop=2
     autocmd! FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
-    autocmd! FileType css  setlocal shiftwidth=4 tabstop=2 softtabstop=2
+    autocmd! FileType css  setlocal shiftwidth=2 tabstop=2 softtabstop=2
     autocmd! FileType ruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
     autocmd! FileType slim setlocal shiftwidth=2 tabstop=2 softtabstop=2
     autocmd! FileType twig setlocal shiftwidth=2 tabstop=2 softtabstop=2
@@ -147,7 +152,20 @@ augroup vimrc
     autocmd! FileType javascript   setlocal shiftwidth=2 tabstop=2 softtabstop=2
 augroup END
 
-" au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
+" autocmd GUIEnter * set transparency=800
+" highlight Normal ctermbg=none
+if !has('gui_running')
+    augroup seiya
+        autocmd!
+        autocmd VimEnter,ColorScheme * highlight Normal ctermbg=none
+        autocmd VimEnter,ColorScheme * highlight LineNr ctermbg=none
+        autocmd VimEnter,ColorScheme * highlight SignColumn ctermbg=none
+        autocmd VimEnter,ColorScheme * highlight VertSplit ctermbg=none
+        autocmd VimEnter,ColorScheme * highlight NonText ctermbg=none
+    augroup END
+endif
+
+au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
 
 nnoremap <C-l> gt
 nnoremap <C-h> gT
