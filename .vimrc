@@ -146,7 +146,14 @@ augroup vimrc
     autocmd! FileType yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
     autocmd! FileType javascript   setlocal shiftwidth=2 tabstop=2 softtabstop=2
 augroup END
-
+augroup TransparentBG
+    autocmd!
+    autocmd Colorscheme * highlight Normal ctermbg=none
+    autocmd Colorscheme * highlight NonText ctermbg=none
+    autocmd Colorscheme * highlight LineNr ctermbg=none
+    autocmd Colorscheme * highlight Folded ctermbg=none
+    autocmd Colorscheme * highlight EndOfBuffer ctermbg=none
+augroup END
 " au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
 
 nnoremap <C-l> gt
