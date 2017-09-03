@@ -175,7 +175,6 @@ if !has('gui_running')
 endif
 
 au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
->>>>>>> 9aed6d83887c2fd24045167807788432835d6b58
 
 nnoremap <C-l> gt
 nnoremap <C-h> gT
