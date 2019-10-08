@@ -92,6 +92,9 @@ NeoBundle "slim-template/vim-slim"
 " NeoBundle 'stephpy/vim-yaml'
 NeoBundle 'mrk21/yaml-vim'
 
+" Nginx
+NeoBundle 'chr4/nginx.vim'
+
 " YAML for ruby
 " NeoBundle 'vim-ruby/vim-ruby'
 
